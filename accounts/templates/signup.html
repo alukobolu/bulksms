@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.signup{
+  height: 100vh;
+  width: 100vw;
+  margin: 0px auto;
+  display: grid;
+  grid-template-columns: repeat(2,auto);
+}
+
+.signup h1{
+  color:  darkblue;
+}
+
+.signup-left{
+  width: 900px;
+  background-color: darkblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.signup-left h1{
+  color: white;
+  font-size: 30px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+.signup-right{
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  
+}
+
+.form-group {
+
+  position: relative;
+  margin: 40px 0px;
+  /* width: 400px; */
+}
+
+.form-group input{
+  width: 400px;
+  outline-color: darkblue;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: 'Poppins',sans-serif;
+}
+
+.form-group label {
+ position: absolute;
+ opacity: 0;
+ top: 0;
+ left: 0;
+ transform: translate(10px,40px);
+ transform-origin: left;
+ transition: transform 0.3s;
+}
+.form-group:focus-within label{
+  transform: translate(0,-30px);
+  scale: 0.8;
+  opacity: 1;
+}
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: darkblue;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.btn:hover {
+  transform: scale(0.98);
+}
+.signup-right a{
+  color: darkblue;
+}
+.signup-left img{
+  width: 500px;
+
+}
+.error{
+  margin-bottom: 10px;
+  color: red;
+}
+.btn img{
+  width: 60px;
+  height: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="signup">
+        <div class="signup-left">
+          <h1>Sign Up</h1>
+          <img src="./assets/new.JPG" alt="" />
+        </div>
+        <form class="signup-right" action="/accounts/register" method="post">
+            {% csrf_token %}
+          <div class="container">
+            <h1>Create Your Account</h1>
+        <div class="form-group">
+          <label for="firstname">First name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            name="fullname"
+            placeholder="Full name"
+          />
+        </div>
+        <!-- <div class="form-group">
+          <label for="lastname">Last name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            name="lastname"
+            placeholder="Last name"
+          />
+        </div> -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Email"
+          />
+        </div>
+      
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password2"
+              placeholder="Confirm Password"
+            />
+          </div>
+      
+        <p>Already have an account? <a href="/accounts/login">Sign In</a></p>
+      
+        <div class="form-group">
+          <button type="submit" class="btn">Sign Up</button>
+        </div>
+      </div>
+        </form>
+      </div>
+</body>
+</html>

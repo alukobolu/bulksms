@@ -1,0 +1,9 @@
+{% autoescape off %}
+Hi {{ user.fullname }},
+
+You're receiving this email because you have not verified the email address you use for Cloudiby.
+
+Please <b>click</b> on the link below to verify your email:
+
+http://{{ domain }}{% url 'accounts_api:activate' uidb64=uid token=token %}
+{% endautoescape %}
